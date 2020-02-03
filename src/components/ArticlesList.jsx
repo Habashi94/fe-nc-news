@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api";
+import { Link } from "@reach/router";
 export default class ArticlesList extends Component {
   state = {
     articles: [],
@@ -23,7 +24,15 @@ export default class ArticlesList extends Component {
       <div>
         <ul>
           {articles.map(article => {
-            return <li>{article.title}</li>;
+            return (
+              <li key={article.article_id}>
+                {
+                  <Link to={`/articles/${article.article_id}`}>
+                    {article.title}
+                  </Link>
+                }
+              </li>
+            );
           })}
         </ul>
       </div>
