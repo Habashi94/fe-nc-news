@@ -22,7 +22,6 @@ export default function ArticleCards({ article }) {
         </Card.Body>
         <Card.Footer className="text-muted">{article.created_at}</Card.Footer>
       </Card>
-      ;
     </div>
   );
 }

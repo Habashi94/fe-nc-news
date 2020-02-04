@@ -20,17 +20,27 @@ export const fetchArticle = articleId => {
   return axios
     .get(`https://mh-nc-news.herokuapp.com/api/articles/${articleId}`)
     .then(({ data }) => {
-      console.log(data);
       return data.article;
     });
 };
 
 export const fetchCommentsById = articleId => {
-  console.log(articleId);
   return axios
     .get(`https://mh-nc-news.herokuapp.com/api/articles/${articleId}/comments`)
     .then(({ data }) => {
-      console.log(data);
       return data.comments;
+    });
+};
+
+export const postComment = (articleId, commentInfo) => {
+  console.log(articleId);
+  return axios
+    .post(
+      `https://mh-nc-news.herokuapp.com/api/articles/${articleId}/comments`,
+      commentInfo
+    )
+    .then(({ data }) => {
+      console.log(data, "api");
+      return data.comment;
     });
 };
