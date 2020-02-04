@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api";
+import CommentsById from "./CommentsById";
 
 export default class IndividualArticle extends Component {
   state = {
@@ -28,7 +29,8 @@ export default class IndividualArticle extends Component {
           <ol>
             <p>{article.body}</p>{" "}
           </ol>
-        </ul>
+        </ul>{" "}
+        <CommentsById article={article.article_id}></CommentsById>
       </div>
     );
   }
