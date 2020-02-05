@@ -44,6 +44,16 @@ export default class CommentsById extends Component {
     });
   };
 
+  deleteComment = id => {
+    api.deleteCommentById(id).then(() => {
+      this.setState(({ comments }) => {
+        return {
+          comments: comments.filter(comment => comment.comment_id !== id)
+        };
+      });
+    });
+  };
+
   render() {
     const { comments } = this.state;
 
@@ -89,6 +99,7 @@ export default class CommentsById extends Component {
               <CommentsCard
                 comment={comment}
                 key={comment.comment_id}
+                deleteComment={this.deleteComment}
               ></CommentsCard>
             );
           })}

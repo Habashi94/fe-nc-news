@@ -3,7 +3,7 @@ import React from "react";
 import {
   Navbar,
   Nav,
-  NavDropdown,
+  // NavDropdown,
   Form,
   FormControl,
   Button
@@ -18,7 +18,7 @@ export default function NavBar() {
         <Nav className="mr-auto">
           <Nav.Link href="/home">Home</Nav.Link>
           <Nav.Link href="/topics">Topics</Nav.Link>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+          {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">
               Another action
@@ -28,7 +28,7 @@ export default function NavBar() {
             <NavDropdown.Item href="#action/3.4">
               Separated link
             </NavDropdown.Item>
-          </NavDropdown>
+          </NavDropdown> */}
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />

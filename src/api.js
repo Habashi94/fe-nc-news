@@ -1,8 +1,14 @@
 import axios from "axios";
 
-export const fetchArticles = topic => {
+export const fetchArticles = (topic, sort_by, order) => {
   return axios
-    .get("https://mh-nc-news.herokuapp.com/api/articles", { params: topic })
+    .get("https://mh-nc-news.herokuapp.com/api/articles", {
+      params: {
+        topic,
+        sort_by,
+        order
+      }
+    })
     .then(({ data }) => {
       return data.articles;
     });
@@ -43,4 +49,10 @@ export const postComment = (articleId, commentInfo) => {
       console.log(data, "api");
       return data.comment;
     });
+};
+
+export const deleteCommentById = commentId => {
+  return axios.delete(
+    `https://mh-nc-news.herokuapp.com/api/comments/${commentId}`
+  );
 };

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../api";
+import { Link } from "@reach/router";
+
 export default class TopicsPage extends Component {
   state = {
     topics: [],
@@ -24,8 +26,8 @@ export default class TopicsPage extends Component {
         <ul>
           {topics.map(topic => {
             return (
-              <li>
-                {topic.slug}
+              <li key={topic.slug}>
+                <Link to={`/${topic.slug}`}>{topic.slug}</Link>
                 <br></br>
                 Description: {topic.description}
               </li>
