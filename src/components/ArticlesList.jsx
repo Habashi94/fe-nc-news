@@ -4,6 +4,7 @@ import { Spinner } from "react-bootstrap";
 import SortBy from "./SortBy";
 import ArticleCards from "./ArticleCards";
 import OrderBy from "./OrderBy";
+import style from "../CSS/card.module.css";
 
 export default class ArticlesList extends Component {
   state = {
@@ -56,7 +57,7 @@ export default class ArticlesList extends Component {
       <div>
         <SortBy handlingOrder={this.handlingOrder}></SortBy>
         <OrderBy handlingOrder={this.handlingOrder}></OrderBy>{" "}
-        <ul>
+        <ul className={style.card}>
           {articles.map(article => {
             return (
               <ArticleCards

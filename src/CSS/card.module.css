@@ -1,0 +1,14 @@
+.card {
+  display: grid;
+  justify-content: center;
+  /* grid-template-columns: 50fr 50fr; */
+
+  flex-direction: column;
+}
+
+.topicCard {
+  display: grid;
+  grid-template-columns: 33fr 33fr 33fr;
+  grid-column-gap: 30px;
+  margin: 15px;
+}

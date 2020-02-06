@@ -1,12 +1,10 @@
 .App {
   background-image: linear-gradient(to right, rgb(216, 207, 207), white);
-  height: 100%;
-  width: 100%;
 }
 
-@media only screen and(max-width:900px) {
+@media only screen and (max-width: 900px) {
   .App {
-    display: grid;
+    display: flex;
     flex-direction: column;
   }
 }

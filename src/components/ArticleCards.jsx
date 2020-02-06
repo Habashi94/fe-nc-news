@@ -9,6 +9,7 @@ export default function ArticleCards({ article }) {
       <Card
         className="text-center"
         style={{ width: "50rem", marginTop: "1rem" }}
+        border="info"
       >
         <Card.Header>{article.topic}</Card.Header>
         <Card.Body>
@@ -20,7 +21,7 @@ export default function ArticleCards({ article }) {
           </Card.Text>
           <Link to={`/articles/${article.article_id}`}>
             {" "}
-            <Button variant="primary" href={`/articles/${article.article_id}`}>
+            <Button variant="info" href={`/articles/${article.article_id}`}>
               View Article
             </Button>
           </Link>{" "}
