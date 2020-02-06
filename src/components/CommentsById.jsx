@@ -100,6 +100,7 @@ export default class CommentsById extends Component {
                 comment={comment}
                 key={comment.comment_id}
                 deleteComment={this.deleteComment}
+                username={this.props.username}
               ></CommentsCard>
             );
           })}
@@ -107,6 +108,7 @@ export default class CommentsById extends Component {
         <FormAddComment
           addComment={this.addComment}
           articleId={this.props.article}
+          username={this.props.username}
         ></FormAddComment>
       </div>
     );

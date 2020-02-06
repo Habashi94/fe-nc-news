@@ -30,7 +30,10 @@ export default class IndividualArticle extends Component {
             <p>{article.body}</p>{" "}
           </ol>
         </ul>{" "}
-        <CommentsById article={article.article_id}></CommentsById>
+        <CommentsById
+          article={article.article_id}
+          username={this.props.username}
+        ></CommentsById>
       </div>
     );
   }

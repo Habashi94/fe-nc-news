@@ -2,6 +2,7 @@ import React from "react";
 // import { Link } from "@reach/router";
 import { Card, Button } from "react-bootstrap";
 import formatDate from "../utils";
+import ArticleVotes from "./ArticleVotes";
 
 export default function ArticleCards({ article }) {
   return (
@@ -14,7 +15,7 @@ export default function ArticleCards({ article }) {
         <Card.Body>
           <Card.Title>{article.title}</Card.Title>
           <Card.Text>
-            comment count: {article.comment_count}
+            <ArticleVotes article={article}></ArticleVotes>
             <br></br>
             Votes : {article.votes}
           </Card.Text>

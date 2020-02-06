@@ -56,3 +56,24 @@ export const deleteCommentById = commentId => {
     `https://mh-nc-news.herokuapp.com/api/comments/${commentId}`
   );
 };
+
+export const voteChanger = (commentId, newVote) => {
+  return axios.patch(
+    `https://mh-nc-news.herokuapp.com/api/comments/${commentId}`,
+    { inc_votes: newVote }
+  );
+};
+
+export const fetchUsers = () => {
+  return axios
+    .get("https://mh-nc-news.herokuapp.com/api/users")
+    .then(({ data }) => {
+      return data.users;
+    });
+};
+
+export const ArticleVoteChanger = (id, newVote) => {
+  return axios.patch(`https://mh-nc-news.herokuapp.com/api/articles/${id}`, {
+    inc_votes: newVote
+  });
+};

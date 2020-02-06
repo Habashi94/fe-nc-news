@@ -7,9 +7,10 @@ export default class VoteChanger extends Component {
   };
 
   handleClick = voteDifference => {
-    const { comment } = this.props;
-    console.log(comment.comment_id);
-    api.voteChanger(comment.comment_id, voteDifference).then(() => {
+    const { article_id } = this.props;
+
+    console.log(article_id);
+    api.ArticleVoteChanger(article_id, voteDifference).then(() => {
       this.setState(currentState => {
         return { voteChange: currentState.voteChange + voteDifference };
       });

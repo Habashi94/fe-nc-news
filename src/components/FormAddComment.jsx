@@ -3,7 +3,7 @@ import * as api from "../api";
 import { Form, Button } from "react-bootstrap";
 export default class FormAddComment extends Component {
   state = {
-    username: "" || "jessjelly",
+    username: "",
     body: ""
   };
 
@@ -15,8 +15,9 @@ export default class FormAddComment extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { username, body } = this.state;
-
+    const { body } = this.state;
+    const { username } = this.props;
+    console.log(username);
     api.postComment(this.props.articleId, { username, body }).then(comment => {
       this.props.addComment(comment);
       this.setState({ username: "", body: "" });
@@ -29,13 +30,13 @@ export default class FormAddComment extends Component {
         <Form style={{ width: "50rem" }} onSubmit={this.handleSubmit}>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Label> Add Comment:</Form.Label>
-            <Form.Control
+            {/* <Form.Control
               type="text"
               placeholder="username"
               onChange={this.handlingChange}
               name="username"
               value={this.state.username}
-            />
+            /> */}
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label> Enter Text</Form.Label>
@@ -46,9 +47,16 @@ export default class FormAddComment extends Component {
               onChange={this.handlingChange}
               name="body"
               value={this.state.body}
+              placeholder={
+                this.props.username ? "Comment away" : "Please sign in"
+              }
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button
+            variant="primary"
+            type="submit"
+            disabled={!this.props.username}
+          >
             Submit
           </Button>
         </Form>

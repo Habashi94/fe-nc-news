@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import formatDate from "../utils";
 import VoteChanger from "./VoteChanger";
 
-export default function CommentsCard({ comment, deleteComment }) {
+export default function CommentsCard({ comment, deleteComment, username }) {
   return (
     <div>
       <Card style={{ width: "50rem", marginTop: "1rem" }}>
@@ -15,15 +15,17 @@ export default function CommentsCard({ comment, deleteComment }) {
             <br></br> Posted on: {formatDate(comment.created_at)}
           </Card.Text>
 
-          <Button variant="primary">Reply</Button>
-          <Button
-            variant="danger"
-            onClick={() => {
-              deleteComment(comment.comment_id);
-            }}
-          >
-            Delete{" "}
-          </Button>
+          {username ? (
+            <Button
+              variant="danger"
+              onClick={() => {
+                deleteComment(comment.comment_id);
+              }}
+              disabled={comment.author !== username}
+            >
+              Delete{" "}
+            </Button>
+          ) : null}
         </Card.Body>
       </Card>
     </div>
