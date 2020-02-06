@@ -10,6 +10,7 @@ import IndividualArticle from "./components/IndividualArticle";
 import ArticlesbyTopic from "./components/ArticlesbyTopic";
 import * as api from "./api";
 import LoginPage from "./components/LoginPage";
+import ErrorPage from "./components/ErrorPage";
 
 export default class App extends React.Component {
   state = {
@@ -50,13 +51,14 @@ export default class App extends React.Component {
           username={username}
         ></LoginPage>
         <Router>
-          <Homepage path="/home"></Homepage>
+          <Homepage path="/"></Homepage>
           <TopicsPage path="/topics"></TopicsPage>
           <IndividualArticle
             path="/articles/:article_id"
             username={username}
           ></IndividualArticle>
-          <ArticlesbyTopic path="/:topic"></ArticlesbyTopic>
+          <ArticlesbyTopic path="/topic/:topic"></ArticlesbyTopic>
+          <ErrorPage default />
         </Router>
       </div>
     );

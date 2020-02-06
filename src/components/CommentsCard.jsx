@@ -11,17 +11,17 @@ export default function CommentsCard({ comment, deleteComment, username }) {
         <Card.Body>
           <Card.Title>{comment.body}</Card.Title>
           <Card.Text>
-            {<VoteChanger comment={comment}></VoteChanger>}
+            {<VoteChanger comment={comment} username={username}></VoteChanger>}
             <br></br> Posted on: {formatDate(comment.created_at)}
           </Card.Text>
 
-          {username ? (
+          {username && username === comment.author ? (
             <Button
               variant="danger"
               onClick={() => {
                 deleteComment(comment.comment_id);
               }}
-              disabled={comment.author !== username}
+              // disabled={comment.author !== username}
             >
               Delete{" "}
             </Button>

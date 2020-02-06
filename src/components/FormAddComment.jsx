@@ -39,7 +39,8 @@ export default class FormAddComment extends Component {
             /> */}
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label> Enter Text</Form.Label>
+            {!this.props.username ? null : "Welcome Back "}
+            <Form.Label> {this.props.username} </Form.Label>
             <Form.Control
               type="text"
               rows="4"

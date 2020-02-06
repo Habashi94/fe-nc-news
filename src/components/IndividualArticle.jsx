@@ -1,23 +1,35 @@
 import React, { Component } from "react";
 import * as api from "../api";
 import CommentsById from "./CommentsById";
+import ArticleVotes from "./ArticleVotes";
+import ErrorPage from "./ErrorPage";
 
 export default class IndividualArticle extends Component {
   state = {
-    article: {}
+    article: {},
+    err: null
   };
 
   getArticle = () => {
-    api.fetchArticle(this.props.article_id).then(article => {
-      this.setState({ article: article });
-    });
+    api
+      .fetchArticle(this.props.article_id)
+      .then(article => {
+        this.setState({ article: article });
+      })
+      .catch(err => {
+        this.setState({ err });
+      });
   };
 
   componentDidMount() {
     this.getArticle();
   }
   render() {
-    const { article } = this.state;
+    const { article, err } = this.state;
+
+    if (err) {
+      return <ErrorPage err={err}></ErrorPage>;
+    }
 
     return (
       <div>
@@ -28,6 +40,13 @@ export default class IndividualArticle extends Component {
           <br></br>
           <ol>
             <p>{article.body}</p>{" "}
+          </ol>
+          <ol>
+            Votes :{" "}
+            <ArticleVotes
+              article={article}
+              username={this.props.username}
+            ></ArticleVotes>
           </ol>
         </ul>{" "}
         <CommentsById

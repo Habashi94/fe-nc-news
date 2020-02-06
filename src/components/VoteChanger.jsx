@@ -17,15 +17,16 @@ export default class VoteChanger extends Component {
   };
 
   render() {
-    const { comment } = this.props;
+    const { comment, username } = this.props;
     const { voteChange } = this.state;
+
     return (
       <div>
         <button
           onClick={() => {
             this.handleClick(1);
           }}
-          disabled={voteChange === 1}
+          disabled={voteChange === 1 || !username}
         >
           UP
         </button>
@@ -34,7 +35,7 @@ export default class VoteChanger extends Component {
           onClick={() => {
             this.handleClick(-1);
           }}
-          disabled={voteChange === -1}
+          disabled={voteChange === -1 || !username}
         >
           DOWN
         </button>

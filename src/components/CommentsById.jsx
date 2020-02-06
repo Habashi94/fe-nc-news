@@ -67,11 +67,10 @@ export default class CommentsById extends Component {
             style={{ width: "50rem", marginTop: "1rem" }}
           >
             <Container>
-              <Navbar.Brand href="#">Comments:</Navbar.Brand>
+              <Navbar.Brand>Comments:</Navbar.Brand>
             </Container>
             <NavDropdown title="Sort By" id="basic-nav-dropdown">
               <NavDropdown.Item
-                href="#action/3.1"
                 onClick={event => {
                   event.preventDefault();
                   this.ascendingOrder();

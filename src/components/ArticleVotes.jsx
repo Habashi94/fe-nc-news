@@ -7,10 +7,9 @@ export default class VoteChanger extends Component {
   };
 
   handleClick = voteDifference => {
-    const { article_id } = this.props;
-
-    console.log(article_id);
-    api.ArticleVoteChanger(article_id, voteDifference).then(() => {
+    const { article } = this.props;
+    console.log(article.article_id);
+    api.ArticleVoteChanger(article.article_id, voteDifference).then(() => {
       this.setState(currentState => {
         return { voteChange: currentState.voteChange + voteDifference };
       });
@@ -18,7 +17,7 @@ export default class VoteChanger extends Component {
   };
 
   render() {
-    const { comment } = this.props;
+    const { article, username } = this.props;
     const { voteChange } = this.state;
     return (
       <div>
@@ -26,16 +25,16 @@ export default class VoteChanger extends Component {
           onClick={() => {
             this.handleClick(1);
           }}
-          disabled={voteChange === 1}
+          disabled={voteChange === 1 || !username}
         >
           UP
         </button>
-        {comment.votes + voteChange}
+        {article.votes + voteChange}
         <button
           onClick={() => {
             this.handleClick(-1);
           }}
-          disabled={voteChange === -1}
+          disabled={voteChange === -1 || !username}
         >
           DOWN
         </button>
