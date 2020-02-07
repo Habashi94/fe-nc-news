@@ -1,6 +1,6 @@
-.App {
+/* .App {
   background-image: linear-gradient(to right, rgb(216, 207, 207), white);
-}
+} */
 
 .text-center {
   width: 40rem;
@@ -24,7 +24,7 @@
 }
 
 body {
-  background-image: linear-gradient(to right, rgb(216, 207, 207), white);
+  background-image: linear-gradient(to right, rgba(185, 174, 174, 0.931), white);
 }
 
 ul {
@@ -43,8 +43,3 @@ ol {
   font-size: 16px;
   cursor: pointer;
 }
-
-/* .fa fa-thumbs-o-down */
-
-
-/* style="font-size:48px;color:red" */

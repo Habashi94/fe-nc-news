@@ -53,6 +53,7 @@ export default class FormAddComment extends Component {
               placeholder={
                 this.props.username ? "Comment away" : "Please sign in"
               }
+              required
             />
           </Form.Group>
           <Button
