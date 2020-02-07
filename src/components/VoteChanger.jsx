@@ -28,16 +28,26 @@ export default class VoteChanger extends Component {
           }}
           disabled={voteChange === 1 || !username}
         >
-          UP
+          <i
+            class={voteChange === 1 ? "fa fa-thumbs-up" : "fa fa-thumbs-o-up"}
+            style={{ color: "blue", fontSize: "20px" }}
+          ></i>
         </button>
-        {comment.votes + voteChange}
+        <br></br>
+        Vote Count: {comment.votes + voteChange}
+        <br></br>
         <button
           onClick={() => {
             this.handleClick(-1);
           }}
           disabled={voteChange === -1 || !username}
         >
-          DOWN
+          <i
+            class={
+              voteChange === -1 ? "fa fa-thumbs-down" : "fa fa-thumbs-o-down"
+            }
+            style={{ color: "red", fontSize: "20px" }}
+          ></i>
         </button>
       </div>
     );

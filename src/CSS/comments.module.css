@@ -1,0 +1,27 @@
+.commentCard {
+  width: 45rem;
+  margin: 1rem;
+}
+
+.nav {
+  width: 60rem;
+}
+
+.form {
+  width: 60rem;
+}
+
+@media only screen and (max-width: 805px) {
+  .commentCard {
+    width: 20rem;
+    margin: 1rem;
+  }
+
+  .nav {
+    width: 20rem;
+  }
+
+  .form {
+    width: 20rem;
+  }
+}

@@ -10,17 +10,14 @@ export default function NavBar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Link to="/">
-            <Nav.Link href="/">Home</Nav.Link>
-          </Link>
-          <Link to="/topics">
-            <Nav.Link href="/topics">Topics</Nav.Link>
-          </Link>
+          <Nav.Link as={Link} to="/">
+            Home
+          </Nav.Link>
+
+          <Nav.Link as={Link} to="/topics">
+            Topics
+          </Nav.Link>
         </Nav>
-        {/* <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-info">Search</Button>
-        </Form> */}
       </Navbar.Collapse>
     </Navbar>
   );

@@ -3,6 +3,8 @@ import * as api from "../api";
 import CommentsCard from "./CommentsCard";
 import { Navbar, Container, NavDropdown } from "react-bootstrap";
 import FormAddComment from "./FormAddComment";
+import style from "../CSS/comments.module.css";
+
 export default class CommentsById extends Component {
   state = {
     comments: []
@@ -60,12 +62,7 @@ export default class CommentsById extends Component {
     return (
       <div>
         <ul>
-          <Navbar
-            expand="lg"
-            variant="light"
-            bg="light"
-            style={{ width: "50rem", marginTop: "1rem" }}
-          >
+          <Navbar expand="lg" variant="light" bg="light" className={style.nav}>
             <Container>
               <Navbar.Brand>Comments:</Navbar.Brand>
             </Container>
@@ -92,6 +89,12 @@ export default class CommentsById extends Component {
               </NavDropdown.Item>
             </NavDropdown>
           </Navbar>
+          <br></br>
+          <FormAddComment
+            addComment={this.addComment}
+            articleId={this.props.article}
+            username={this.props.username}
+          ></FormAddComment>
 
           {comments.map(comment => {
             return (
@@ -104,11 +107,6 @@ export default class CommentsById extends Component {
             );
           })}
         </ul>
-        <FormAddComment
-          addComment={this.addComment}
-          articleId={this.props.article}
-          username={this.props.username}
-        ></FormAddComment>
       </div>
     );
   }

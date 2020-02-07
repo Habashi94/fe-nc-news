@@ -2,9 +2,49 @@
   background-image: linear-gradient(to right, rgb(216, 207, 207), white);
 }
 
-@media only screen and (max-width: 900px) {
+.text-center {
+  width: 40rem;
+  margin: 1rem;
+}
+
+@media only screen and (max-width: 805px) {
   .App {
     display: flex;
     flex-direction: column;
   }
+  .text-center {
+    width: 20rem;
+    margin: 1rem;
+    display: grid;
+    justify-content: center;
+    /* grid-template-columns: 50fr 50fr; */
+
+    flex-direction: column;
+  }
 }
+
+body {
+  background-image: linear-gradient(to right, rgb(216, 207, 207), white);
+}
+
+ul {
+  padding: 0%;
+}
+
+ol {
+  padding: 0%;
+}
+
+.trash-btn {
+  background-color: rgb(245, 53, 19);
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* .fa fa-thumbs-o-down */
+
+
+/* style="font-size:48px;color:red" */

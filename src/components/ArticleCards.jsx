@@ -8,7 +8,7 @@ export default function ArticleCards({ article }) {
     <div>
       <Card
         className="text-center"
-        style={{ width: "50rem", marginTop: "1rem" }}
+        // style={{ width: "40rem", marginTop: "1rem" }}
         border="info"
       >
         <Card.Header>{article.topic}</Card.Header>
@@ -18,13 +18,14 @@ export default function ArticleCards({ article }) {
             comment count: {article.comment_count}
             <br></br>
             Votes : {article.votes}
-          </Card.Text>
-          <Link to={`/articles/${article.article_id}`}>
-            {" "}
-            <Button variant="info" href={`/articles/${article.article_id}`}>
-              View Article
-            </Button>
-          </Link>{" "}
+          </Card.Text>{" "}
+          <Button
+            variant="info"
+            as={Link}
+            to={`/articles/${article.article_id}`}
+          >
+            View Article
+          </Button>
         </Card.Body>
         <Card.Footer className="text-muted">
           {formatDate(article.created_at)}

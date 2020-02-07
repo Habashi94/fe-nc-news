@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import * as api from "../api";
 import { Form, Button } from "react-bootstrap";
+import style from "../CSS/comments.module.css";
+
 export default class FormAddComment extends Component {
   state = {
     username: "",
@@ -27,7 +29,7 @@ export default class FormAddComment extends Component {
   render() {
     return (
       <div>
-        <Form style={{ width: "50rem" }} onSubmit={this.handleSubmit}>
+        <Form className={style.form} onSubmit={this.handleSubmit}>
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Label> Add Comment:</Form.Label>
             {/* <Form.Control

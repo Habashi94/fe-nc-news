@@ -1,12 +1,13 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import formatDate from "../utils";
 import VoteChanger from "./VoteChanger";
+import style from "../CSS/comments.module.css";
 
 export default function CommentsCard({ comment, deleteComment, username }) {
   return (
     <div>
-      <Card style={{ width: "50rem", marginTop: "1rem" }}>
+      <Card className={style.commentCard}>
         <Card.Header as="h5">{comment.author}</Card.Header>
         <Card.Body>
           <Card.Title>{comment.body}</Card.Title>
@@ -16,16 +17,24 @@ export default function CommentsCard({ comment, deleteComment, username }) {
           </Card.Text>
 
           {username && username === comment.author ? (
-            <Button
-              variant="danger"
+            <button
+              class="trash-btn"
               onClick={() => {
                 deleteComment(comment.comment_id);
               }}
-              // disabled={comment.author !== username}
             >
-              Delete{" "}
-            </Button>
-          ) : null}
+              <i class="fa fa-trash"></i>
+            </button>
+          ) : // <Button
+          //   variant="danger"
+          //   onClick={() => {
+          //     deleteComment(comment.comment_id);
+          //   }}
+          //   // disabled={comment.author !== username}
+          // >
+          //   Delete{" "}
+          // </Button>
+          null}
         </Card.Body>
       </Card>
     </div>

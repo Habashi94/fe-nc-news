@@ -4,6 +4,7 @@ import { Link } from "@reach/router";
 import ErrorPage from "./ErrorPage";
 import { Card, CardDeck } from "react-bootstrap";
 import style from "../CSS/card.module.css";
+import { Spinner } from "react-bootstrap";
 
 export default class TopicsPage extends Component {
   state = {
@@ -30,7 +31,19 @@ export default class TopicsPage extends Component {
     const { topics, isLoading, err } = this.state;
     if (err) {
       return <ErrorPage err={err}></ErrorPage>;
-    } else if (isLoading) return <p>Loading....</p>;
+    } else if (isLoading)
+      return (
+        <div>
+          <Spinner animation="grow" variant="primary" />
+          <Spinner animation="grow" variant="secondary" />
+          <Spinner animation="grow" variant="success" />
+          <Spinner animation="grow" variant="danger" />
+          <Spinner animation="grow" variant="warning" />
+          <Spinner animation="grow" variant="info" />
+          <Spinner animation="grow" variant="light" />
+          <Spinner animation="grow" variant="dark" />
+        </div>
+      );
     return (
       <div>
         <h4>Topics</h4>
@@ -44,7 +57,7 @@ export default class TopicsPage extends Component {
 
               // </li>
 
-              <CardDeck style={{ width: "30rem" }}>
+              <CardDeck className={style.topicPageCard}>
                 <Card border="primary">
                   {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
                   <Card.Body>
