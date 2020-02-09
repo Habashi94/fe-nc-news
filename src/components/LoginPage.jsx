@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Dropdown } from "react-bootstrap";
+import Avatar from "@material-ui/core/Avatar";
 
 export default function LoginPage({ users, username, handleClick }) {
   return (
@@ -18,8 +19,9 @@ export default function LoginPage({ users, username, handleClick }) {
           <Dropdown.Menu onClick={handleClick}>
             {users.map(user => {
               return (
-                <Dropdown.Item name={user} key={user}>
-                  {user}
+                <Dropdown.Item name={user.username} key={user.username}>
+                  {user.username}
+                  <Avatar alt={user.username} src={user.avatar_url} />
                 </Dropdown.Item>
               );
             })}

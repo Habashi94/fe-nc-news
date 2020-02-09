@@ -45,7 +45,6 @@ export default class FormAddComment extends Component {
             <Form.Label> {this.props.username} </Form.Label>
             <Form.Control
               type="text"
-              rows="4"
               style={{ marginBottom: "1rem" }}
               onChange={this.handlingChange}
               name="body"

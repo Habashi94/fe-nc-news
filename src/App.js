@@ -20,7 +20,8 @@ export default class App extends React.Component {
 
   componentDidMount() {
     api.fetchUsers().then(users => {
-      this.setState({ users: users.map(user => user.username) });
+      // this.setState({ users: users.map(user => user.username) });
+      this.setState({ users: users });
     });
   }
 
