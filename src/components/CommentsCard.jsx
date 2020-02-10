@@ -17,7 +17,7 @@ export default function CommentsCard({
   });
 
   return (
-    <div>
+    <div id="commentBox">
       <Comment.Group style={{ margin: "3rem" }}>
         <Comment>
           <div className="Votes">
@@ -36,9 +36,10 @@ export default function CommentsCard({
             <Comment.Metadata>
               <div>Posted on: {formatDate(comment.created_at)}</div>
             </Comment.Metadata>
-            <Comment.Text>{comment.body}
-            <br></br>
-            ----------------------</Comment.Text>
+            <Comment.Text>
+              {comment.body}
+              <br></br>
+            </Comment.Text>
 
             {username && username === comment.author ? (
               <button

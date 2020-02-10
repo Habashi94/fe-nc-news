@@ -25,3 +25,7 @@ Run Locally
 ```
 npm start
 ```
+
+## Test the web-app
+
+Northcoders News is hosted on <a href='https://nc-news-mh.herokuapp.com/ '>heroku.</a>

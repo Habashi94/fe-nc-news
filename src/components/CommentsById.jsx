@@ -97,13 +97,12 @@ export default class CommentsById extends Component {
               </NavDropdown.Item>
             </NavDropdown>
           </Navbar>
-          <br></br>
+          <br></br>{" "}
           <FormAddComment
             addComment={this.addComment}
             articleId={this.props.article}
             username={this.props.username}
           ></FormAddComment>
-
           {comments.map(comment => {
             return (
               <CommentsCard
