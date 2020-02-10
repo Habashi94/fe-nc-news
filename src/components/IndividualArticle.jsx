@@ -52,10 +52,12 @@ export default class IndividualArticle extends Component {
             <Card.Title></Card.Title>
             <Card.Text>{article.body}</Card.Text>
             Votes :{" "}
-            <ArticleVotes
-              article={article}
-              username={this.props.username}
-            ></ArticleVotes>
+            {!this.props.username ? null : (
+              <ArticleVotes
+                article={article}
+                username={this.props.username}
+              ></ArticleVotes>
+            )}
           </Card.Body>
           <Card.Footer>Posted by : {article.author}</Card.Footer>
         </Card>

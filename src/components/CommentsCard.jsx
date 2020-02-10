@@ -28,7 +28,9 @@ export default function CommentsCard({
                 url[0].username === comment.author ? url[0].avatar_url : null
               }
             />
-            {<VoteChanger comment={comment} username={username}></VoteChanger>}
+            {!username ? null : (
+              <VoteChanger comment={comment} username={username}></VoteChanger>
+            )}
           </div>
 
           <Comment.Content>

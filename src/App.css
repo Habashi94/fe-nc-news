@@ -43,6 +43,7 @@
   }
   .singleArticle {
     width: 22rem;
+    margin-left: -0.5rem;
   }
 
   #commentBox {
