@@ -25,6 +25,9 @@ export default class App extends React.Component {
       // this.setState({ users: users.map(user => user.username) });
       this.setState({ users: users });
     });
+    if (localStorage.getItem("username")) {
+      this.setState({ username: localStorage.getItem("username") });
+    }
   }
 
   // componentDidUpdate(prevProps, prevState) {
@@ -38,7 +41,7 @@ export default class App extends React.Component {
 
   handleClick = event => {
     this.setState({ username: event.target.name });
-    console.log(this.state.username);
+    localStorage.setItem("username", event.target.name);
   };
 
   render() {
