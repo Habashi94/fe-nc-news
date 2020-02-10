@@ -1,6 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import "@blueprintjs/core/lib/css/blueprint.css";
+import "semantic-ui-css/semantic.min.css";
 import Header from "./components/Header";
 import Homepage from "./components/Homepage";
 import { Router } from "@reach/router";
@@ -57,6 +59,7 @@ export default class App extends React.Component {
           <IndividualArticle
             path="/articles/:article_id"
             username={username}
+            users={users}
           ></IndividualArticle>
           <ArticlesbyTopic path="/topic/:topic"></ArticlesbyTopic>
           <ErrorPage default />

@@ -8,7 +8,7 @@ export default class VoteChanger extends Component {
 
   handleClick = voteDifference => {
     const { article } = this.props;
-    console.log(article.article_id);
+
     api.ArticleVoteChanger(article.article_id, voteDifference).then(() => {
       this.setState(currentState => {
         return { voteChange: currentState.voteChange + voteDifference };
@@ -28,7 +28,9 @@ export default class VoteChanger extends Component {
           disabled={voteChange === 1 || !username}
         >
           <i
-            class={voteChange === 1 ? "fa fa-thumbs-up" : "fa fa-thumbs-o-up"}
+            className={
+              voteChange === 1 ? "fa fa-thumbs-up" : "fa fa-thumbs-o-up"
+            }
             style={{ color: "blue", fontSize: "20px" }}
           ></i>
         </button>

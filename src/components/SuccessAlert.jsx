@@ -6,8 +6,8 @@ function SuccessAlert() {
 
   if (show) {
     return (
-      <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-        Comment Succesfully Deleted!!
+      <Alert variant="success" onClose={() => setShow(false)} dismissible>
+        Comment Successfully Deleted!!
       </Alert>
     );
   }

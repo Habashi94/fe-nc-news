@@ -111,6 +111,7 @@ export default class CommentsById extends Component {
                 key={comment.comment_id}
                 deleteComment={this.deleteComment}
                 username={this.props.username}
+                users={this.props.users}
               ></CommentsCard>
             );
           })}

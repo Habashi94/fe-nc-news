@@ -4,21 +4,23 @@ import ArticleCards from "./ArticleCards";
 import ErrorPage from "./ErrorPage";
 import style from "../CSS/article.module.css";
 import { Spinner } from "react-bootstrap";
+import SortBy from "./SortBy";
+import OrderBy from "./OrderBy";
 
 export default class ArticlesbyTopic extends Component {
   state = {
     articles: [],
-    // sort_by: "created_at",
-    // order: "desc"
+    sort_by: "created_at",
+    order: "desc",
     isLoading: true,
     err: null
   };
   getArticles = () => {
-    // const { sort_by, order } = this.state;
+    const { sort_by, order } = this.state;
     const { topic } = this.props;
 
     api
-      .fetchArticles(topic)
+      .fetchArticles(topic, sort_by, order)
       .then(results => {
         this.setState({ articles: results, isLoading: false });
       })
@@ -27,6 +29,19 @@ export default class ArticlesbyTopic extends Component {
   componentDidMount() {
     this.getArticles();
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.sort_by !== this.state.sort_by ||
+      prevState.order !== this.state.order
+    ) {
+      this.getArticles();
+    }
+  }
+  handlingOrder = (text, key) => {
+    this.setState({ [key]: text });
+  };
+
   render() {
     const { articles, err, isLoading } = this.state;
     if (err) {
@@ -46,6 +61,13 @@ export default class ArticlesbyTopic extends Component {
       );
     return (
       <div>
+        <div className="sorting">
+          {" "}
+          <p className="sortBy">Sort by:</p>{" "}
+          <SortBy handlingOrder={this.handlingOrder}></SortBy>
+          <p className="orderBy">Order:</p>{" "}
+          <OrderBy handlingOrder={this.handlingOrder}></OrderBy>
+        </div>{" "}
         <ul className={style.article}>
           {articles.map(article => {
             return (

@@ -46,7 +46,7 @@ export default class TopicsPage extends Component {
       );
     return (
       <div>
-        <h4>Topics</h4>
+        <h4 id="topicHeader">Topics</h4>
         <ul className={style.topicCard}>
           {topics.map(topic => {
             return (
@@ -57,11 +57,11 @@ export default class TopicsPage extends Component {
 
               // </li>
 
-              <CardDeck className={style.topicPageCard}>
+              <CardDeck className={style.topicPageCard} key={topic.slug}>
                 <Card border="primary">
                   {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
                   <Card.Body>
-                    <Card.Title>{topic.slug}</Card.Title>
+                    <Card.Title>{topic.slug.toUpperCase()}</Card.Title>
                     <Card.Text>Description: {topic.description}</Card.Text>
                   </Card.Body>
                   <Card.Footer>

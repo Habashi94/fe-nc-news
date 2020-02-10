@@ -4,11 +4,12 @@
 }
 
 .nav {
-  width: 60rem;
+  width: 80rem;
 }
 
 .form {
   width: 60rem;
+  margin: 1rem;
 }
 
 @media only screen and (max-width: 805px) {

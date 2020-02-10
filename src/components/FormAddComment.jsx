@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import * as api from "../api";
-import { Form, Button } from "react-bootstrap";
+// import { Form, Button } from "react-bootstrap";
 import style from "../CSS/comments.module.css";
+import { Form, Button } from "semantic-ui-react";
 
 export default class FormAddComment extends Component {
   state = {
@@ -29,39 +30,28 @@ export default class FormAddComment extends Component {
   render() {
     return (
       <div>
-        <Form className={style.form} onSubmit={this.handleSubmit}>
-          <Form.Group controlId="exampleForm.ControlInput1">
-            <Form.Label> Add Comment:</Form.Label>
-            {/* <Form.Control
-              type="text"
-              placeholder="username"
-              onChange={this.handlingChange}
-              name="username"
-              value={this.state.username}
-            /> */}
-          </Form.Group>
-          <Form.Group controlId="exampleForm.ControlTextarea1">
-            {!this.props.username ? null : "Welcome Back "}
-            <Form.Label> {this.props.username} </Form.Label>
-            <Form.Control
-              type="text"
-              style={{ marginBottom: "1rem" }}
-              onChange={this.handlingChange}
-              name="body"
-              value={this.state.body}
-              placeholder={
-                this.props.username ? "Comment away" : "Please sign in"
-              }
-              required
-            />
-          </Form.Group>
+        <Form reply className={style.form} onSubmit={this.handleSubmit}>
+          {!this.props.username ? null : "Welcome Back "}
+          {this.props.username}
+          <br></br>
+          <Form.TextArea
+            type="text"
+            style={{ marginBottom: "1rem" }}
+            onChange={this.handlingChange}
+            name="body"
+            value={this.state.body}
+            placeholder={
+              this.props.username ? "Comment away" : "Please sign in"
+            }
+            required
+          />
           <Button
-            variant="primary"
-            type="submit"
+            content="Add Comment"
+            labelPosition="left"
+            icon="edit"
+            primary
             disabled={!this.props.username}
-          >
-            Submit
-          </Button>
+          />
         </Form>
       </div>
     );

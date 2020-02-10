@@ -2,6 +2,7 @@ import React from "react";
 
 export default function SortBy({ handlingOrder }) {
   return (
+    
     <select
       id="sort"
       onClick={event => {

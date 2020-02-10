@@ -55,8 +55,13 @@ export default class ArticlesList extends Component {
       );
     return (
       <div>
-        <SortBy handlingOrder={this.handlingOrder}></SortBy>
-        <OrderBy handlingOrder={this.handlingOrder}></OrderBy>{" "}
+        <div className="sorting">
+          {" "}
+          <p className="sortBy">Sort by:</p>{" "}
+          <SortBy handlingOrder={this.handlingOrder}></SortBy>
+          <p className="orderBy">Order:</p>{" "}
+          <OrderBy handlingOrder={this.handlingOrder}></OrderBy>
+        </div>{" "}
         <ul className={style.card}>
           {articles.map(article => {
             return (

@@ -8,7 +8,7 @@ export default class VoteChanger extends Component {
 
   handleClick = voteDifference => {
     const { comment } = this.props;
-    console.log(comment.comment_id);
+
     api.voteChanger(comment.comment_id, voteDifference).then(() => {
       this.setState(currentState => {
         return { voteChange: currentState.voteChange + voteDifference };
@@ -21,7 +21,7 @@ export default class VoteChanger extends Component {
     const { voteChange } = this.state;
 
     return (
-      <div>
+      <div className="voteCount">
         <button
           onClick={() => {
             this.handleClick(1);
@@ -34,7 +34,7 @@ export default class VoteChanger extends Component {
           ></i>
         </button>
         <br></br>
-        Vote Count: {comment.votes + voteChange}
+        {comment.votes + voteChange}
         <br></br>
         <button
           onClick={() => {
