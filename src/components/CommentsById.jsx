@@ -9,8 +9,15 @@ import SuccessAlert from "./SuccessAlert";
 export default class CommentsById extends Component {
   state = {
     comments: [],
-    message: true
+    message: true,
+    showComments: true
   };
+
+  handleClick(event) {
+    this.setState({
+      showComments: !this.state.showComments
+    });
+  }
 
   getComments = () => {
     api.fetchCommentsById(this.props.article).then(comments => {
@@ -64,8 +71,8 @@ export default class CommentsById extends Component {
   };
 
   render() {
-    const { comments, message } = this.state;
-    console.log(message);
+    const { comments, message, showComments } = this.state;
+
     return (
       <div>
         {message ? null : <SuccessAlert message={message}></SuccessAlert>}
@@ -103,17 +110,30 @@ export default class CommentsById extends Component {
             articleId={this.props.article}
             username={this.props.username}
           ></FormAddComment>
-          {comments.map(comment => {
-            return (
-              <CommentsCard
-                comment={comment}
-                key={comment.comment_id}
-                deleteComment={this.deleteComment}
-                username={this.props.username}
-                users={this.props.users}
-              ></CommentsCard>
-            );
-          })}
+          <button
+            onClick={() => {
+              this.handleClick();
+            }}
+            type="button"
+            class="bp3-button bp3-intent-primary "
+            style={{ margin: "2rem" }}
+          >
+            {" "}
+            {showComments ? "Hide Comments" : "Show Comments"}
+          </button>
+          {showComments
+            ? comments.map(comment => {
+                return (
+                  <CommentsCard
+                    comment={comment}
+                    key={comment.comment_id}
+                    deleteComment={this.deleteComment}
+                    username={this.props.username}
+                    users={this.props.users}
+                  ></CommentsCard>
+                );
+              })
+            : null}
         </ul>
       </div>
     );

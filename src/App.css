@@ -9,6 +9,7 @@
 
 .singleArticle {
   width: 70rem;
+
   display: flex;
   justify-content: center;
   grid-template-columns: 1fr;
