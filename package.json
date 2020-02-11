@@ -13,6 +13,8 @@
     "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
     "react": "^16.12.0",
+    "react-alert": "^6.0.0",
+    "react-alert-template-basic": "^1.0.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.1",

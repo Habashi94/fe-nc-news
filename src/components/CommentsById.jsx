@@ -8,7 +8,6 @@ import style from "../CSS/comments.module.css";
 export default class CommentsById extends Component {
   state = {
     comments: [],
-
     showComments: true
   };
 
