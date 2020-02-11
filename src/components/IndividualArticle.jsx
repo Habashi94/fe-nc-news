@@ -3,7 +3,7 @@ import * as api from "../api";
 import CommentsById from "./CommentsById";
 import ArticleVotes from "./ArticleVotes";
 import ErrorPage from "./ErrorPage";
-import { Spinner, Card } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 
 export default class IndividualArticle extends Component {
   state = {
@@ -46,21 +46,25 @@ export default class IndividualArticle extends Component {
       );
     return (
       <div>
-        <Card border="primary" className="singleArticle">
-          <Card.Header>{article.title}</Card.Header>
-          <Card.Body>
-            <Card.Title></Card.Title>
-            <Card.Text>{article.body}</Card.Text>
-            Votes :{" "}
-            {!this.props.username ? null : (
-              <ArticleVotes
-                article={article}
-                username={this.props.username}
-              ></ArticleVotes>
-            )}
-          </Card.Body>
-          <Card.Footer>Posted by : {article.author}</Card.Footer>
-        </Card>
+        <div id="articleBox" className="bp3-card bp3-elevation-4">
+          {article.title}
+          <br />
+          <br />
+          {article.body}
+          <br></br>
+          <br></br>
+          Votes :{" "}
+          {!this.props.username ? null : (
+            <ArticleVotes
+              article={article}
+              username={this.props.username}
+            ></ArticleVotes>
+          )}
+          <br></br>
+          <br></br>
+          Posted by : {article.author}
+        </div>
+
         <br></br>
         <CommentsById
           article={article.article_id}

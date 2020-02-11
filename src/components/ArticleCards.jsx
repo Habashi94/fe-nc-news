@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from "@reach/router";
 // import { Card, Button } from "react-bootstrap";
 import formatDate from "../utils";
-import { Button, Card } from "@blueprintjs/core";
+import { Button, Card, Elevation } from "@blueprintjs/core";
 export default function ArticleCards({ article }) {
   return (
     <div className="bp3-card.modifier">
       <Card
-        className="bp3-card bp3-interactive .bp3-elevation-3"
-        style={{ margin: "1rem" }}
+        className="bp3-card"
+        style={{ margin: "1rem", borderRadius: "30px 20px" , backgroundColor:'white', color:'black'}}
+        elevation={Elevation.FOUR}
       >
         <h5>{article.topic.toUpperCase()}</h5>
         <p>

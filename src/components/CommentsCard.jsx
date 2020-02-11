@@ -17,7 +17,7 @@ export default function CommentsCard({
   });
 
   return (
-    <div id="commentBox" className="bp3-card bp3-interactive .bp3-elevation-4">
+    <div id="commentBox" className="bp3-card bp3-elevation-2">
       <Comment.Group style={{ margin: "3rem" }}>
         <Comment>
           <div className="Votes">

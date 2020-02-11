@@ -4,12 +4,11 @@ import CommentsCard from "./CommentsCard";
 import { Navbar, Container, NavDropdown } from "react-bootstrap";
 import FormAddComment from "./FormAddComment";
 import style from "../CSS/comments.module.css";
-import SuccessAlert from "./SuccessAlert";
 
 export default class CommentsById extends Component {
   state = {
     comments: [],
-    message: true,
+
     showComments: true
   };
 
@@ -31,10 +30,6 @@ export default class CommentsById extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps !== this.props) this.getComments();
-    if (prevState.message !== true)
-      this.setState({
-        message: true
-      });
   }
 
   ascendingOrder = () => {
@@ -63,19 +58,17 @@ export default class CommentsById extends Component {
     api.deleteCommentById(id).then(() => {
       this.setState(({ comments }) => {
         return {
-          comments: comments.filter(comment => comment.comment_id !== id),
-          message: false
+          comments: comments.filter(comment => comment.comment_id !== id)
         };
       });
     });
   };
 
   render() {
-    const { comments, message, showComments } = this.state;
+    const { comments, showComments } = this.state;
 
     return (
       <div>
-        {message ? null : <SuccessAlert message={message}></SuccessAlert>}
         <ul>
           <Navbar expand="lg" variant="light" bg="light" className={style.nav}>
             <Container>

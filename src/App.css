@@ -26,6 +26,15 @@
   width: 60rem;
   margin: 1rem;
   background-color: white;
+  border-radius: 50px 20px;
+}
+
+#articleBox {
+  border: double red 3px;
+
+  margin: 1rem;
+  background-color: white;
+  border-radius: 20px 60px;
 }
 
 @media only screen and (max-width: 805px) {
@@ -45,6 +54,7 @@
   .singleArticle {
     width: 22rem;
     margin-left: -0.5rem;
+    border-radius: 50px 20px;
   }
 
   #commentBox {
@@ -52,6 +62,10 @@
     width: 20rem;
     margin: 1rem;
     background-color: white;
+  }
+
+  #articleBox {
+    width: 20rem;
   }
 }
 

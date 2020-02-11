@@ -22,22 +22,12 @@ export default class App extends React.Component {
 
   componentDidMount() {
     api.fetchUsers().then(users => {
-      // this.setState({ users: users.map(user => user.username) });
       this.setState({ users: users });
     });
     if (localStorage.getItem("username")) {
       this.setState({ username: localStorage.getItem("username") });
     }
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (
-  //     prevState.username !== this.state.username ||
-  //     prevProps.username !== this.state.username
-  //   ) {
-  //     this.getUsers();
-  //   }
-  // }
 
   handleClick = event => {
     this.setState({ username: event.target.name });
