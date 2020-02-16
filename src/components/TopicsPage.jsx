@@ -50,16 +50,21 @@ export default class TopicsPage extends Component {
         <ul className={style.topicCard}>
           {topics.map(topic => {
             return (
-              // <li key={topic.slug}>
-              //   <Link to={`/topic/${topic.slug}`}>{topic.slug}</Link>
-              //   <br></br>
-              //   Description: {topic.description}
-
-              // </li>
-
               <CardDeck className={style.topicPageCard} key={topic.slug}>
                 <Card border="primary">
-                  {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
+                  <Card.Img
+                    variant="top"
+                    src={
+                      topic.slug === "football"
+                        ? "https://targetcareers.co.uk/sites/targetcareers.co.uk/files/public/styles/header_1500x550/public/field/image/football.jpg?itok=O1dRVOeD"
+                        : null || topic.slug === "coding"
+                        ? "https://spacetab.github.io/portfolio/assets/images/baner-code..jpg"
+                        : null || topic.slug === "cooking"
+                        ? "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1tCbjmu94Xh5w78NBDCR77MLDlZVSthZyeQiwKwc8Lu0OgPl5"
+                        : null
+                    }
+                    roundedCircle
+                  />
                   <Card.Body>
                     <Card.Title>{topic.slug.toUpperCase()}</Card.Title>
                     <Card.Text>Description: {topic.description}</Card.Text>
