@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import * as api from "../api";
 import { Card, Image, Button } from "semantic-ui-react";
-// import { Button } from "@blueprintjs/core";
-// import { Card, Button } from "react-bootstrap";
 import { Link } from "@reach/router";
+import ErrorPage from "./ErrorPage";
+import { Spinner } from "react-bootstrap";
 
 export default class Userlist extends Component {
   state = {
-    users: []
+    users: [],
+    isLoading: true,
+    err: null
   };
 
   componentDidMount() {
     api.fetchUsers().then(users => {
-      this.setState({ users: users });
+      this.setState({ users: users, isLoading: false });
     });
   }
 
@@ -22,12 +24,28 @@ export default class Userlist extends Component {
   };
 
   render() {
-    const { users } = this.state;
+    const { users, isLoading, err } = this.state;
+    if (err) {
+      return <ErrorPage err={err}></ErrorPage>;
+    } else if (isLoading)
+      return (
+        <div>
+          <Spinner animation="grow" variant="primary" />
+          <Spinner animation="grow" variant="secondary" />
+          <Spinner animation="grow" variant="success" />
+          <Spinner animation="grow" variant="danger" />
+          <Spinner animation="grow" variant="warning" />
+          <Spinner animation="grow" variant="info" />
+          <Spinner animation="grow" variant="light" />
+          <Spinner animation="grow" variant="dark" />
+        </div>
+      );
+
     return (
       <div id="userCard">
         {users.map(user => {
           return (
-            <ul>
+            <ul key={user.username}>
               <Card>
                 <Image
                   onError={this.addDefaultSrc}

@@ -3,8 +3,8 @@ import React from "react";
 export default function ErrorPage({ err }) {
   if (err) {
     return (
-      <div>
-        <h3>
+      <div id="errorMsg">
+        <h3 id="errorHeader">
           {err.response.status} {err.response.statusText}{" "}
           {err.response.data.msg}
         </h3>
@@ -12,6 +12,5 @@ export default function ErrorPage({ err }) {
     );
   }
 
-  return <h4>404 Page Not Found </h4>;
+  return <h4 id="errorHeader">404 Page Not Found </h4>;
 }
-

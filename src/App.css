@@ -162,3 +162,18 @@ ol {
 #prevButton {
   margin: 1rem;
 }
+
+#errorMsg {
+  color: red;
+  display: flex;
+  justify-content: center;
+}
+
+#errorHeader {
+  font-size: 10rem;
+  font-family: fantasy;
+  color: red;
+  display: flex;
+  justify-content: center;
+  margin: 7rem;
+}
