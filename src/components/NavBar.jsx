@@ -17,6 +17,9 @@ export default function NavBar() {
           <Nav.Link as={Link} to="/topics">
             Topics
           </Nav.Link>
+          <Nav.Link as={Link} to="/users">
+            Users
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

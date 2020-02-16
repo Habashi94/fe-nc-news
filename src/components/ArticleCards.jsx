@@ -24,6 +24,8 @@ export default function ArticleCards({ article }) {
           Votes : {article.votes} <i class="fa fa-star"></i>
           <br></br>
           Posted on : {formatDate(article.created_at)}
+          <br></br>
+          Posted by : {article.author}
         </p>
 
         <Link to={`/articles/${article.article_id}`}>

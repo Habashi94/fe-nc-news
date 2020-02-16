@@ -5,18 +5,21 @@ import SortBy from "./SortBy";
 import ArticleCards from "./ArticleCards";
 import OrderBy from "./OrderBy";
 import style from "../CSS/card.module.css";
+import { Button } from "@blueprintjs/core";
 
 export default class ArticlesList extends Component {
   state = {
     articles: [],
     isLoading: true,
     sort_by: "created_at",
-    order: "desc"
+    order: "desc",
+    limit: 10,
+    p: 1
   };
 
   getArticles = topic => {
-    const { sort_by, order } = this.state;
-    api.fetchArticles(topic, sort_by, order).then(results => {
+    const { sort_by, order, limit, p } = this.state;
+    api.fetchArticles(topic, sort_by, order, limit, p).then(results => {
       this.setState({ articles: results, isLoading: false });
     });
   };
@@ -32,11 +35,16 @@ export default class ArticlesList extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (
       prevState.sort_by !== this.state.sort_by ||
-      prevState.order !== this.state.order
+      prevState.order !== this.state.order ||
+      this.state.p !== prevState.p
     ) {
       this.getArticles();
     }
   }
+
+  incPage = inc => {
+    this.setState(prevState => ({ p: prevState.p + inc }));
+  };
 
   render() {
     const { articles, isLoading } = this.state;
@@ -72,6 +80,35 @@ export default class ArticlesList extends Component {
             );
           })}
         </ul>
+        <div id="pageButton">
+          {" "}
+          <Button
+            onClick={() => {
+              this.incPage(-1);
+            }}
+            disabled={this.state.p < 2}
+            type="button"
+            class="bp3-button bp3-intent-primary "
+            id="nextButton"
+            rightIcon="arrow-left"
+          >
+            Prev Page
+          </Button>
+          {this.state.p}
+          <Button
+            onClick={() => {
+              this.incPage(1);
+            }}
+            disabled={articles.length < 10}
+            type="button"
+            class="bp3-button bp3-intent-primary "
+            id="prevButton"
+            rightIcon="arrow-right"
+          >
+            Next Page
+          </Button>
+          <br></br>
+        </div>
       </div>
     );
   }

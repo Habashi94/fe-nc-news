@@ -46,7 +46,11 @@ export default class FormAddComment extends Component {
             required
           />
           <Button
-            content="Add Comment"
+            content={
+              !this.props.username
+                ? "Please Sign in to add comment"
+                : "Add Comment"
+            }
             labelPosition="left"
             icon="edit"
             primary

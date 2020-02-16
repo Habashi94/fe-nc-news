@@ -13,6 +13,8 @@ import ArticlesbyTopic from "./components/ArticlesbyTopic";
 import * as api from "./api";
 import LoginPage from "./components/LoginPage";
 import ErrorPage from "./components/ErrorPage";
+import Userlist from "./components/Userlist";
+import ArticlesByUser from "./components/ArticlesByUser";
 
 export default class App extends React.Component {
   state = {
@@ -55,6 +57,8 @@ export default class App extends React.Component {
             users={users}
           ></IndividualArticle>
           <ArticlesbyTopic path="/topic/:topic"></ArticlesbyTopic>
+          <Userlist path="/users"></Userlist>
+          <ArticlesByUser path='/articles/users/:author'></ArticlesByUser>
           <ErrorPage default />
         </Router>
       </div>

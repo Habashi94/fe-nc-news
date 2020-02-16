@@ -37,6 +37,14 @@
   border-radius: 20px 60px;
 }
 
+#userCard {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 33fr 33fr 33fr;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 2rem;
+}
+
 @media only screen and (max-width: 805px) {
   .App {
     display: flex;
@@ -66,6 +74,13 @@
 
   #articleBox {
     width: 20rem;
+  }
+
+  #userCard {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 }
 
@@ -130,4 +145,20 @@ ol {
   margin-right: 1rem;
   margin-left: 1rem;
   margin-bottom: 1px;
+}
+
+#pageButton {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  align-items: center;
+  margin: 2rem;
+}
+
+#nextButton {
+  margin: 1rem;
+}
+
+#prevButton {
+  margin: 1rem;
 }
