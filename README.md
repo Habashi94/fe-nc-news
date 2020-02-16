@@ -6,7 +6,7 @@ NorthCoders news is a web app designed to post articles and discuss with other u
 
 - Link to the Api : https://mh-nc-news.herokuapp.com/api/
 
-- [link to backend Nc news](https://github.com/Habashi94/NC-News)
+- [Link to backend Nc news](https://github.com/Habashi94/NC-News)
 
 ## Built With
 
