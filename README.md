@@ -5,6 +5,15 @@ NorthCoders news is a web app designed to post articles and discuss with other u
 ## Backend Api and information
 
 Link to the Api : https://mh-nc-news.herokuapp.com/api/
+[link to backend Nc news](https://github.com/Habashi94/NC-News)
+
+## Built With
+
+- [Axios](https://github.com/axios/axios)
+- [Node 12](https://nodejs.org)
+- [Reach Router](https://reach.tech/router)
+- [Blueprint 3](https://blueprintjs.com)
+- [React Bootstrap](https://react-bootstrap.github.io/)
 
 ## How to copy and run locally
 
